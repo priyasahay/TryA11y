@@ -122,6 +122,17 @@ A big thank you to all our contributors! 🎉
 
 ---
 
+## Acknowledgements
+
+TryA11y builds on these open-source tools:
+
+- [axe-core](https://github.com/dequelabs/axe-core) — accessibility rules engine (MPL 2.0)
+- [Ollama](https://github.com/ollama/ollama) — local LLM runtime for AI explanations (MIT)
+- [React](https://github.com/facebook/react) — DevTools panel UI (MIT)
+- [Vite](https://github.com/vitejs/vite) — build tooling (MIT)
+
+---
+
 ## Security
 
 See [SECURITY.md](./SECURITY.md).
