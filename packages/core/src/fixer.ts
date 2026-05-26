@@ -22,7 +22,6 @@ const heuristics: Record<string, FixHeuristic> = {};
  *
  * @param ruleId - The axe rule identifier the heuristic handles.
  * @param heuristic - A DOM-aware fix generator for matching issues.
- * @returns Nothing.
  */
 export function registerHeuristic(ruleId: string, heuristic: FixHeuristic): void {
   heuristics[ruleId] = heuristic;
