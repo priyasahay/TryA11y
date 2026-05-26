@@ -19,6 +19,9 @@ export interface ScanOptions {
 
 /**
  * Run an axe-core accessibility scan and return normalised results.
+ *
+ * @param options - Optional scan scope and rule filters.
+ * @returns A normalised scan summary with issues, counts, and duration.
  */
 export async function scan(options: ScanOptions = {}): Promise<ScanResult> {
   const startTime = performance.now();

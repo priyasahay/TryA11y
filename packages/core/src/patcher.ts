@@ -75,6 +75,12 @@ export function fixToPatchOps(issue: A11yIssue, fix: FixSuggestion): PatchOperat
 // Apply a batch of patch operations; return an undo function
 // ---------------------------------------------------------------------------
 
+/**
+ * Apply a batch of DOM patch operations and return an undo function.
+ *
+ * @param operations - The low-level patch operations to apply in order.
+ * @returns A function that reverts every applied operation in reverse order.
+ */
 export function applyPatches(operations: PatchOperation[]): () => void {
   const undoSteps: Array<() => void> = [];
 
@@ -222,6 +228,13 @@ export function applyPatches(operations: PatchOperation[]): () => void {
 // Convenience: apply a single fix and get its undo function
 // ---------------------------------------------------------------------------
 
+/**
+ * Apply a single suggested fix and return an undo function.
+ *
+ * @param issue - The accessibility issue that anchors the fix selector.
+ * @param fix - The high-level fix suggestion to convert and apply.
+ * @returns A function that reverts the applied DOM changes.
+ */
 export function applyFix(issue: A11yIssue, fix: FixSuggestion): () => void {
   const ops = fixToPatchOps(issue, fix);
   return applyPatches(ops);

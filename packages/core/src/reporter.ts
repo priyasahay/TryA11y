@@ -15,6 +15,15 @@ import type {
 
 /**
  * Generate a report string from a scan result.
+ *
+ * @param result - The accessibility scan output to render.
+ * @param options - The desired report format and presentation options.
+ * @returns A serialized HTML, JSON, or Markdown report.
+ *
+ * @example
+ * ```ts
+ * const report = generateReport(scanResult, { format: 'markdown', title: 'Homepage audit' });
+ * ```
  */
 export function generateReport(
   result: ScanResult,

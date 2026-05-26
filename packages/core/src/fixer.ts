@@ -17,7 +17,13 @@ type FixHeuristic = (issue: A11yIssue, element: Element) => FixSuggestion | null
 
 const heuristics: Record<string, FixHeuristic> = {};
 
-/** Register a heuristic for a specific axe rule id. */
+/**
+ * Register a heuristic for a specific axe rule id.
+ *
+ * @param ruleId - The axe rule identifier the heuristic handles.
+ * @param heuristic - A DOM-aware fix generator for matching issues.
+ * @returns Nothing.
+ */
 export function registerHeuristic(ruleId: string, heuristic: FixHeuristic): void {
   heuristics[ruleId] = heuristic;
 }
@@ -29,7 +35,12 @@ export function generateFix(issue: A11yIssue, element: Element): FixSuggestion |
   return genericFix(issue, element);
 }
 
-/** Generate fixes for a batch of issues. */
+/**
+ * Generate fixes for a batch of issues.
+ *
+ * @param issues - The normalised accessibility issues to resolve.
+ * @returns A map keyed by issue id for every issue that produced a fix.
+ */
 export function generateFixes(issues: A11yIssue[]): Map<string, FixSuggestion> {
   const fixes = new Map<string, FixSuggestion>();
   for (const issue of issues) {
